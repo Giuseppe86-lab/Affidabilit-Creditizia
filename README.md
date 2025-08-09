@@ -1,3 +1,15 @@
 # Affidabilità-Creditizia
 
 Fifh Project of the Master in Data Science by Professional.AI
+
+Questo progetto si pone alla fine del modulo "machine learning: modelli e algoritmi", in cui sono stati trattaati argomenti come: metodi di ottimizzazione, modelli parametrici e non parametrici (Naive Bayes, SVM-Support Vector Machine, Neural Networks, K-NN, Decision Tree e Random Forest). Questo corso mi ha dato una panoramica completa degli algoritmi del Machine Learning classico.
+
+In questo progetto dovevo creare un modello di ML che preveda l'affidabilità creditizia per il rilascio di una carta di credito. Il mio modello doveva essere interpretabile, questa è una condizione molto forte che ha influenzato i tipi di modelli che ho valutato. L'interpretabilità è essenziale perché nel progetto si richiede che in caso di rifiuto alla concessione della carta, il team dev'essere in grado di dare delle spiegazioni.
+
+Per svolgere questo lavor ho seguito i classici step di un progetto di ML:
+
+1. Caratteristiche generali del dataset: studio delle caratteristiche globali delle feature. Ricerca dei valori nulli e dei duplicati. Studio delle categorie delle feature qualitative.
+2. Analisi univariata e multivariata: distribuzione delle diverse modalità per le feature qualitative e studio degli istogrammi e boxplot relativi. Nell'analisi multivariata ho analizzato le feature In relazione tra di loro e il target. Ho usato pairplot, matrice di correlazione (Kenball), seppur i grafici mostrassero delle tendenze ho anche usato il test di Mann-Whitney U per verificare la dipendenza delle distribuzioni dal target. Per le feature qualitative ho usato grafici a barre normalizzate sul target. Il test del chi-quadro mi ha permesso di verificare la relazione delle feature col target.
+3. Preprocessing dei dati: ho definito un column transformer per mappare le features con valori yes/no e il OHE per le altre. L'ultima attività che ho svolto è stata la divisione del DATASET in train e test, il test di Kolmogorov-Smirnov mi ha permesso di verificare  che i 2 data set sono statisticamente equivalenti a quello originale.
+4. Costruzione dei modelli predittivi: la richiesta di interpretabilità mi ha fatto pensare al decision tree, per confronto ho definito anche un modello di regressione logistica e una SVM con kennel gaussiano. Il confronto tra le matrici di confusione, la precisione e la recall dei diversi modelli haa confermato come l'albero decisionale abbia le prestazioni migliori.
+5. Scelta del modello e valutazione sull'intero dataset: nel primo DT definito ho usato tutte le feature, ma ha mostrato problemi di overfiting. Nel secondo DT ho fatto feature selection dove è emerso che solo 3 feature erano in grado di descrivere quasi tutte le casistiche. Permane il problema dell' overfitting. Nel terzo DT ho usato l'attributo "balanced”, no miglioramenti. Nel quarto DT ho svolto il fine tuning degli iperparametri del modello attraverso una grid search. Questo ha portato a notevoli miglioramenti. Per concludere il progetto ho inserito un grafo ad albero che mostra le scelte fatte in ogni nodo, questo risponde al criterio di interpretabilità.
